@@ -3,6 +3,29 @@ import { AiOutlineSmile } from 'react-icons/ai'
 import { BsFillEmojiSmileFill, BsEmojiSmileUpsideDown } from 'react-icons/bs'
 
 const resume = () => {
+  const FrontEnd = [
+    '--JavaScript/TypeScript',
+    '--React js/Next js',
+    '--React Router',
+    '--JQuery',
+    '--Redux Toolkit/RTK query',
+    '--axios',
+    '--Webpack',
+    '--SCSS/CSS-modules/BEM/Tailwindcss',
+    '--Material UI',
+    'Jest/enzyme/React-testing-library',
+  ]
+
+  const BackEnd = ['--Firebase', '--Python']
+
+  const OtherSkills = [
+    'GitHub',
+    'JSON',
+    'BEM(CSS)',
+    'Figma/Adobe Photoshop',
+    'Bitrix24/amoCRM',
+  ]
+
   return (
     <div className="p-4 ">
       <div className="border-b-[1px] mb-6"></div>
@@ -10,46 +33,39 @@ const resume = () => {
       <div className="flex justify-around max-sm:flex-col">
         <div className="bg-gradient-to-r from-[#ebedee] to-[#414e5bb5] rounded-xl p-5">
           <div className="flex flex-col">
-            <div className="flex gap-2 items-center">
+            <div className="flex items-center gap-2">
               <AiOutlineSmile className="mb-2" />
-              <h3 className="text-center font-semibold mb-1">
+              <h3 className="mb-1 font-semibold text-center">
                 Front-end development
               </h3>
             </div>
-            <p>--JavaScript/TypeScript</p>
-            <p>--React js/Next js</p>
-            <p>--React Router</p>
-            <p>--JQuery</p>
-            <p>--Redux Toolkit/RTK query</p>
-            <p>--axios</p>
-            <p>--Webpack</p>
-            <p>--SCSS/CSS-modules/BEM/Tailwindcss</p>
-            <p>- Material UI</p>
+            {FrontEnd.map((skill, id) => (
+              <p key={id}>{skill}</p>
+            ))}
           </div>
         </div>
         <div className="flex flex-col gap-5 max-sm:">
           <div className=" rounded-xl p-5 bg-gradient-to-r from-[#818588] to-[#414e5bb5] ">
-            <div className="flex gap-2 items-center">
+            <div className="flex items-center gap-2">
               <BsFillEmojiSmileFill className="mb-2" />
-              <h3 className="text-center font-semibold mb-1">
+              <h3 className="mb-1 font-semibold text-center">
                 Back-end development
               </h3>
             </div>
             <div>
-              <p>--Firebase</p>
-              <p>--Python</p>
+              {BackEnd.map((skill, id) => (
+                <p key={id}>{skill}</p>
+              ))}
             </div>
           </div>
           <div className=" rounded-xl p-5 mt-3 bg-gradient-to-r from-[#d0d1d2d7] to-[#414e5bb5]">
-            <div className="flex gap-2 items-center">
+            <div className="flex items-center gap-2">
               <BsEmojiSmileUpsideDown className="mb-2" />
-              <h3 className="text-center font-semibold mb-1">Other skills</h3>
+              <h3 className="mb-1 font-semibold text-center">Other skills</h3>
             </div>
-            <p>Git/GitHub</p>
-            <p>JSON</p>
-            <p>BEM (CSS)</p>
-            <p>Figma/Adobe Photoshop</p>
-            <p>Bitrix24/amoCRM</p>
+            {OtherSkills.map((skill, id) => (
+              <p key={id}>{skill}</p>
+            ))}
           </div>
         </div>
       </div>
@@ -58,14 +74,3 @@ const resume = () => {
 }
 
 export default resume
-
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const res = await fetch('http://localhost:3000/api/services')
-  const data = await res.json()
-
-  return {
-    props: {
-      services: data.services,
-    },
-  }
-}

@@ -3,14 +3,17 @@ import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 import { BsTelegram } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { GiTie } from 'react-icons/gi'
+import Image from 'next/image'
 
 const Sidebar = () => {
   return (
     <div>
-      <img
+      <Image
         src="/my-image.jpg"
         alt="my image"
         className="w-32 h-32 mx-auto rounded-full"
+        width="128"
+        height="128"
       />
       <h3 className="text-2xl font-medium tracking-wider font-kaushan">
         <span className="text-[#a2adb4]">Orkhan </span>
@@ -54,10 +57,6 @@ const Sidebar = () => {
         <p className="my-2">orduxan144@gmail.com</p>
         <p className="my-2">+994 50 879 73 21</p>
       </div>
-
-      <button className="px-5 py-2 my-2 text-white rounded-full bg-gradient-to-r from-green-400 to-blue-400">
-        Change theme
-      </button>
     </div>
   )
 }
