@@ -17,7 +17,7 @@ const Navbar = () => {
     if (pathname === '/Skills') {
       setActiveItem('Skills')
     }
-  }, [])
+  }, [pathname])
 
   const NavItem: FC<{
     activeItem: string
